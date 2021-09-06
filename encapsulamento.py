@@ -1,12 +1,16 @@
 """
 public, protected, private
-_ protect
-__ private
+_ protect/protect (public _)
+__ private (__NOMECLASSE__nomeatributo)
 """
 
 class BaseDeDados:
     def __init__(self) -> None:
         self.__dados = {}
+
+    @property
+    def dados(self):
+        return self.__dados
 
     def inserir_clientes(self, id, nome):
         if 'clientes' not in self.__dados:
@@ -26,4 +30,7 @@ bd.inserir_clientes(1, 'Otávio')
 bd.inserir_clientes(2, 'Luiza')
 bd.inserir_clientes(3, 'Maria')
 bd.__dados = 'Outra Coisa'
-bd.listaClientes()
+#print(bd.__dados)
+#print(bd._BaseDeDados__dados)
+#bd.listaClientes()
+#print(bd.dados)
